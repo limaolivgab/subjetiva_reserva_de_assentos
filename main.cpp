@@ -40,14 +40,15 @@ void reservarAssento(char reserva[10][6]) {
 			   		if(fileira >= 1 && fileira <= 10) {
 			   			do {
 			   			if(assento == 1) {
-				   			printf("Digite a coluna do assento (A ou F): ");
+				   			printf("Digite a coluna do assento (A ou F, no entanto, se desejar, digite as colunas restantes): ");
 				   			scanf(" %c", &col_assento);	 
+				   			if ((toupper(col_assento) == 'B') || (toupper(col_assento) == 'C') || (toupper(col_assento) == 'D') || (toupper(col_assento) == 'E')) printf("\nEscolha preferencialmente as colunas A ou F!\n");
 				   			sleep(1);
-				   			if ((toupper(col_assento) == 'A') || (toupper(col_assento)) == 'F') {
+				   			if ((toupper(col_assento) == 'A') || (toupper(col_assento) == 'B') || (toupper(col_assento) == 'C') || (toupper(col_assento) == 'D') || (toupper(col_assento) == 'E') ||(toupper(col_assento)) == 'F') {
 				   				col_bool = true;
 				   				fil_bool = true;
 							}else{
-								printf("\nEntrada invalida! Digite apenas A ou F.");
+								printf("\nEntrada invalida! Digite apenas A/F ou B/C/D/E.");
 							}
 						}else{
 							printf("Digite a coluna do assento (B, C, D ou E): ");
@@ -136,7 +137,7 @@ int main() {
         scanf(" %c", &encerrar);
         if (toupper(encerrar) == 'N') {
         	sleep(1);
-        	printf("\nEncerrando...\n");
+        	printf("\nEncerrando o sistema de reservas...\n");
         	sleep(3);
             break;
         } else if (toupper(encerrar) == 'S'){
